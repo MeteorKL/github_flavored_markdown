@@ -213,6 +213,10 @@ var gfmHTMLConfig = syntaxhighlight.HTMLConfig{
 // TODO: Support highlighting for more languages.
 func highlightCode(src []byte, lang string) (highlightedCode []byte, ok bool) {
 	switch lang {
+	case "go":
+		fallthrough
+	case "golang":
+		fallthrough
 	case "Go":
 		var buf bytes.Buffer
 		err := highlight_go.Print(src, &buf, syntaxhighlight.HTMLPrinter(gfmHTMLConfig))
